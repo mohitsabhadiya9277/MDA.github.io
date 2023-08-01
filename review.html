@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review Page</title>
+    <link rel="stylesheet" href="bootstrap-4.0.0\dist\css\bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script>
+
+    <style>
+        body {
+            background-image: url(5389.jpg);
+        }
+
+        .back-video {
+            position: absolute;
+            z-index: -1;
+            width: 100%;
+            opacity: 70%;
+        }
+
+        #menu::after {
+            content: '';
+            width: 0%;
+            height: 3px;
+            background: #020202;
+            margin: auto;
+            display: block;
+            transition: 0.5s;
+        }
+
+        #menu:hover::after {
+            width: 100%;
+        }
+
+        #menu {
+            color: #0c0c0c;
+            text-decoration: none;
+            font-size: 13px;
+
+        }
+
+
+        * {
+            margin: 0px;
+            padding: 0px;
+
+            box-sizing: border-box;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        #testimonials {
+            font-family: 'Acme';
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .testimonial-heading {
+            letter-spacing: 1px;
+            margin: 30px 0px;
+            padding: 10px 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .testimonial-heading h1 {
+            font-size: 2.2rem;
+            font-weight: 500;
+            background-color: #202020;
+            color: #ffffff;
+            padding: 10px 20px;
+        }
+
+        .testimonial-heading span {
+            font-size: 1.3rem;
+            color: #252525;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .testimonial-box-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+
+        .testimonial-box {
+            width: 500px;
+            box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff;
+            padding: 20px;
+            margin: 15px;
+            cursor: pointer;
+        }
+
+        .profile-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 10px;
+        }
+
+        .profile-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .profile {
+            display: flex;
+            align-items: center;
+        }
+
+        .name-user {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .name-user strong {
+            color: #3d3d3d;
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
+        }
+
+        .name-user span {
+            color: #979797;
+            font-size: 0.8rem;
+        }
+
+        .reviews {
+            color: #f9d71c;
+        }
+
+        .box-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .client-comment p {
+            font-size: 0.9rem;
+            color: #4b4b4b;
+        }
+
+        .testimonial-box:hover {
+            transform: translateY(-10px);
+            transition: all ease 0.3s;
+        }
+
+        @media(max-width:1060px) {
+            .testimonial-box {
+                width: 45%;
+                padding: 10px;
+            }
+        }
+
+        @media(max-width:790px) {
+            .testimonial-box {
+                width: 100%;
+            }
+
+            .testimonial-heading h1 {
+                font-size: 1.4rem;
+            }
+        }
+
+        @media(max-width:340px) {
+            .box-top {
+                flex-wrap: wrap;
+                margin-bottom: 10px;
+            }
+
+            .reviews {
+                margin-top: 10px;
+            }
+        }
+
+        ::selection {
+            color: #ffffff;
+            background-color: #252525;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <div class="jumbotron text-center" style="margin-bottom:0; background-color: rgb(251, 121, 73);">
+        <h1>Welcome to Our Dance Academy</h1>
+    </div>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light" style="font-weight: bold; background-color: rgb(255, 159, 124); ">
+
+        <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01"
+            aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+            <a class="navbar-brand" href="#"><img src="nataraja1.png" width="50" height="60"> MDA </a>
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0" style="margin-left: 2rem; margin-right: 2rem;">
+                <li class="nav-item">
+                    <a class="nav-link active" href="home.html" id="menu">Home </a>
+                </li>
+                <li class="nav-item active dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" href="#"
+                        id="menu">Dancetypes</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="garba.html">Garba</a>
+                        <a class="dropdown-item" href="bhangda.html">Bhangda</a>
+                        <a class="dropdown-item" href="bw.html">Bollywood</a>
+                        <a class="dropdown-item" href="bharatnatayam.html">Bharatnatayam</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="staff.html" id="menu">Our Staff</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="price.html" id="menu">Price List</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="contact.html" id="menu">Contact Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="review.html" id="menu">Our Reviews</a>
+                </li>
+            </ul>
+        </div>
+        <form class="d-flex">
+            <input type="search" class="form-control me-2" placeholder="Search">
+            <button type="Submit" class="btn btn-primary" style="margin: 1px 10px;">🔍</button>
+        </form>
+
+    </nav>
+
+
+    <div class="col-sm-8" style="height: 59rem; max-width: 100%;">
+        <section id="testimonials">
+            <!--heading--->
+            <div class="testimonial-heading">
+                <span>Comments</span>
+                <h1>Students Reviews</h1>
+            </div>
+            <!--testimonials-box-container------>
+            <div class="testimonial-box-container">
+                <!--BOX-1-------------->
+                <div class="testimonial-box">
+                    <!--top------------------------->
+                    <div class="box-top">
+                        <!--profile----->
+                        <div class="profile">
+                            <!--img---->
+                            <div class="profile-img">
+                                <img src="review1.jpg" />
+                            </div>
+                            <!--name-and-username-->
+                            <div class="name-user">
+                                <strong>Manthan Bharodiya</strong>
+                                <span>@manthanbharodiya</span>
+                            </div>
+                        </div>
+                        <!--reviews------>
+                        <div class="reviews">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i><!--Empty star-->
+                        </div>
+                    </div>
+                    <!--Comments---------------------------------------->
+                    <div class="client-comment">
+                        <p>Great experience working with <b>Mohit and team at MDA</b>. They acted very quickly to my
+                            request as we were pressed for time. Also customised the choreography to the learners needs
+                            (multiple times) as we wanted some choreo that was easy and some that was moderately
+                            difficult. </p>
+                    </div>
+                </div>
+                <!--BOX-2-------------->
+                <div class="testimonial-box">
+                    <!--top------------------------->
+                    <div class="box-top">
+                        <!--profile----->
+                        <div class="profile">
+                            <!--img---->
+                            <div class="profile-img">
+                                <img src="review2.jpg" />
+                            </div>
+                            <!--name-and-username-->
+                            <div class="name-user">
+                                <strong>Smit Chovatiya</strong>
+                                <span>@smitchovatiya</span>
+                            </div>
+                        </div>
+                        <!--reviews------>
+                        <div class="reviews">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><!--Empty star-->
+                        </div>
+                    </div>
+                    <!--Comments---------------------------------------->
+                    <div class="client-comment">
+                        <p>Wow! Superb! Amazing! are the words through which people appreciated you all. Team <b>MDA</b>
+                            you guys are amazing, you have the capacity to understand the true point of me as I am bad
+                            at explaining things. Gread job at the end I would again say Wow Superb Amazing and all luck
+                            to you guys</p>
+                    </div>
+                </div>
+                <!--BOX-3-------------->
+                <div class="testimonial-box">
+                    <!--top------------------------->
+                    <div class="box-top">
+                        <!--profile----->
+                        <div class="profile">
+                            <!--img---->
+                            <div class="profile-img">
+                                <img src="review3.jpg" />
+                            </div>
+                            <!--name-and-username-->
+                            <div class="name-user">
+                                <strong>Yanish Kukadiya</strong>
+                                <span>@yanishkukadiya</span>
+                            </div>
+                        </div>
+                        <!--reviews------>
+                        <div class="reviews">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i><!--Empty star-->
+                        </div>
+                    </div>
+                    <!--Comments---------------------------------------->
+                    <div class="client-comment">
+                        <p><b>MDA</b> did a great job at our event from organising Entertainment part to making us laugh
+                            out loud. The vibe this team spreads is so pure. Very professional with the timings as well
+                            as the change in steps needed. Thank You for making this journey beautiful.</p>
+                    </div>
+                </div>
+                <!--BOX-4-------------->
+                <div class="testimonial-box">
+                    <!--top------------------------->
+                    <div class="box-top">
+                        <!--profile----->
+                        <div class="profile">
+                            <!--img---->
+                            <div class="profile-img">
+                                <img src="review4.jpg" />
+                            </div>
+                            <!--name-and-username-->
+                            <div class="name-user">
+                                <strong>Denish Chopda</strong>
+                                <span>@denishchopda</span>
+                            </div>
+                        </div>
+                        <!--reviews------>
+                        <div class="reviews">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i><!--Empty star-->
+                        </div>
+                    </div>
+                    <!--Comments---------------------------------------->
+                    <div class="client-comment">
+                        <p>Team <b>MDA</b>, thank you so much for giving us the experience of calmness during my
+                            brother's Sangeet. You guys are the best. I don't know how do you guys pull up so much with
+                            this ease. I expected our performances to be just fine, but I saw beauty with every song.
+                        </p>
+                    </div>
+                </div>
+                <!--BOX-5-------------->
+                <div class="testimonial-box">
+                    <!--top------------------------->
+                    <div class="box-top">
+                        <!--profile----->
+                        <div class="profile">
+                            <!--img---->
+                            <div class="profile-img">
+                                <img src="review5.jpg" />
+                            </div>
+                            <!--name-and-username-->
+                            <div class="name-user">
+                                <strong>Ankita Chavada</strong>
+                                <span>@ankitachavada</span>
+                            </div>
+                        </div>
+                        <!--reviews------>
+                        <div class="reviews">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i><!--Empty star-->
+                        </div>
+                    </div>
+                    <!--Comments---------------------------------------->
+                    <div class="client-comment">
+                        <p>Team <b>MDA</b>, They are the most creative guys I have met till now for any type of wedding
+                            performances. Glad I found them. Loved your work with this much compassion and love. </p>
+                    </div>
+                </div>
+                <!--BOX-6-------------->
+                <div class="testimonial-box">
+                    <!--top------------------------->
+                    <div class="box-top">
+                        <!--profile----->
+                        <div class="profile">
+                            <!--img---->
+                            <div class="profile-img">
+                                <img src="review6.jpg" />
+                            </div>
+                            <!--name-and-username-->
+                            <div class="name-user">
+                                <strong>Dhruvin Sabhadiya</strong>
+                                <span>@dhulosabhadiya</span>
+                            </div>
+                        </div>
+                        <!--reviews------>
+                        <div class="reviews">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><!--Empty star-->
+                        </div>
+                    </div>
+                    <!--Comments---------------------------------------->
+                    <div class="client-comment">
+                        <p>Best choreographers in India. They are so sweet and polite. Best thing about <B>MDA</B> is
+                            that they have really great teachers who have the ability to make difficult steps so simple.
+                            The technique of breaking down to basic things to make us understand was phenomenol. Made us
+                            enjoy the whole journey. Thanks <b>Team MDA</b></p>
+                    </div>
+                </div>
+                <!--BOX-7-------------->
+                <div class="testimonial-box">
+                    <!--top------------------------->
+                    <div class="box-top">
+                        <!--profile----->
+                        <div class="profile">
+                            <!--img---->
+                            <div class="profile-img">
+                                <img src="review7.jpg" />
+                            </div>
+                            <!--name-and-username-->
+                            <div class="name-user">
+                                <strong>Jainam Sanghavi</strong>
+                                <span>@jainamsanghavi</span>
+                            </div>
+                        </div>
+                        <!--reviews------>
+                        <div class="reviews">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i><!--Empty star-->
+                        </div>
+                    </div>
+                    <!--Comments---------------------------------------->
+                    <div class="client-comment">
+                        <p>Loved the choreography and management from <b>Team MDA</b>. The choreography was really good.
+                            Moreover the choreographers were amazing. They were really patient with us as our whole
+                            family were of non-dancers. Glad that you guys organised our event effortlessly. Thank you
+                            so much❤️</p>
+                    </div>
+                </div>
+                <!--BOX-8-------------->
+                <div class="testimonial-box">
+                    <!--top------------------------->
+                    <div class="box-top">
+                        <!--profile----->
+                        <div class="profile">
+                            <!--img---->
+                            <div class="profile-img">
+                                <img src="review8.jpg" />
+                            </div>
+                            <!--name-and-username-->
+                            <div class="name-user">
+                                <strong>Jay Sanghani</strong>
+                                <span>@jaysanghani</span>
+                            </div>
+                        </div>
+                        <!--reviews------>
+                        <div class="reviews">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <!--Comments---------------------------------------->
+                    <div class="client-comment">
+                        <p>Thanks to you, <b>Mohit and Team</b> for the wonderful choreography.
+                            Your professionalism with the personal warmth is commendable.
+                            Many thanks for making the non dancers also dance so well 💃 🕺
+                            God bless you both always and may <B>MDA</B> rise and shine ✨🙏🏻🙌</p>
+                    </div>
+                </div>
+                <!--BOX-9-------------->
+                <div class="testimonial-box">
+                    <!--top------------------------->
+                    <div class="box-top">
+                        <!--profile----->
+                        <div class="profile">
+                            <!--img---->
+                            <div class="profile-img">
+                                <img src="review9.jpg" />
+                            </div>
+                            <!--name-and-username-->
+                            <div class="name-user">
+                                <strong>Prince Lakhankiya</strong>
+                                <span>@princelakhankiya</span>
+                            </div>
+                        </div>
+                        <!--reviews------>
+                        <div class="reviews">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <!--Comments---------------------------------------->
+                    <div class="client-comment">
+                        <p>It was such a great experience working with <b>MDA</b>. From timely completing the
+                            performances to giving their best shot at creativity. 5 star to this amazing team. Book your
+                            choreography through <b>MDA</b> for a hassle free experience ❤️🌼.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Footer -->
+    <div class="jumbotron text-center" style="margin-bottom:0; background-color: rgb(251, 121, 73);">
+        <footer class="full-footer">
+            <div class="container top-footer p-md-3 p-1">
+                <div class="row">
+                    <div class="col-md-3 pl-4 pr-4">
+                        <h3>Description</h3>
+                        <p>
+                            There are shortcuts to happiness, and dancing is one of them. So, Our Academy is make
+                            improve a Dance
+                            skill in your child <a href="#">Readmore</a>
+                        </p>
+
+                    </div>
+
+                    <div class="col-md-3  pl-4 pr-4">
+                        <h3>Important Links</h3>
+                        <a href="#">Privacy Policy</a><br>
+                        <a href="thewholedancer.com">Blog Articles </a><br>
+                        <a href="@mohitsabhadiya1773"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                fill="currentColor" class="bi bi-youtube" viewBox="0 0 16 16">
+                                <path
+                                    d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408L6.4 5.209z" />
+                            </svg> Mohit Sabhadiya</a><br>
+                        <a href="https://www.instagram.com/mohitsabhadiya_official/#"><svg
+                                xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-instagram" viewBox="0 0 16 16">
+                                <path
+                                    d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z" />
+                            </svg> mohitsabhadiya_official</a>
+                    </div>
+
+                    <div class="col-md-3  pl-4 pr-4">
+                        <h3>Our Services</h3>
+                        <a href="garba.html">Garba</a><br>
+                        <a href="bhangda.html">Bhangda</a><br>
+                        <a href="bw.html">Bollywood</a><br>
+                        <a href="bharatnatayam.html">Bharatnatayam</a>
+                    </div>
+
+                    <div class="col-md-3  pl-4 pr-4">
+                        <h3>Contact Us</h3>
+                        <a href="#"> 99243 27360 </a><br>
+                        <a href="mailto:mohitsabhadiya9924@gmail.com  "> mohitsabhadiya9924@gmail.com
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid bottom-footer pt-2">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <p>Copyrights © 2023 - All rights reserved</p>
+                    </div>
+                </div>
+            </div>
+
+        </footer>
+    </div>
+
+    <!-- Usefully JS -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+        crossorigin="anonymous"></script>
+    </script>
+</body>
+
+</html>
